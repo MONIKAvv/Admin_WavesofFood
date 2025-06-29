@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.dontHaveAccBtn.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
         }
         binding.loginButton.setOnClickListener {
 //            firebase signup

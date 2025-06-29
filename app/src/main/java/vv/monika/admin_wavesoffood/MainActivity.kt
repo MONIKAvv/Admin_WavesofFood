@@ -11,13 +11,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import vv.monika.admin_wavesoffood.databinding.ActivityMainBinding
 import vv.monika.admin_wavesoffood.ui.theme.Admin_WavesofFoodTheme
 
 class MainActivity : ComponentActivity() {
+    private val binding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-       setContentView(R.layout.activity_main)
+       setContentView(binding.root)
 //        start code from here
 
     }

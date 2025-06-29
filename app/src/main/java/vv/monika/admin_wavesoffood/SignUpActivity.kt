@@ -1,6 +1,7 @@
 package vv.monika.admin_wavesoffood
 
 import android.R
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
@@ -20,5 +21,10 @@ class SignUpActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listOfLocation)
         val autoCompleteTextView = binding.searchLocationEditText
         autoCompleteTextView.setAdapter(adapter)
+
+        binding.alreadyHaveAccBtn.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 }
