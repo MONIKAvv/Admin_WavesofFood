@@ -1,5 +1,6 @@
 package vv.monika.admin_wavesoffood
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,11 +19,19 @@ class MainActivity : ComponentActivity() {
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-       setContentView(binding.root)
+        setContentView(binding.root)
 //        start code from here
+        binding.addItem.setOnClickListener {
+            startActivity(Intent(this, AddItemActivity::class.java))
+        }
+        binding.allItemMenu.setOnClickListener {
+            startActivity(Intent(this, AllItemMenuActivity::class.java))
+        }
+
 
     }
 }
