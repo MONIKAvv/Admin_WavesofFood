@@ -77,13 +77,13 @@
                 android:layout_height="20dp"
                 android:layout_marginTop="8dp"
                 app:srcCompat="@drawable/attantion"
-                app:layout_constraintEnd_toEndOf="@+id/textView12"
-                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintEnd_toEndOf="@+id/pending_order"
+                app:layout_constraintStart_toStartOf="@+id/pending_order"
                 app:layout_constraintTop_toTopOf="@+id/guideline"
                 />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/pending_order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -104,10 +104,10 @@
                 android:fontFamily="@font/yeon_sung"
                 android:text="30"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="@+id/textView12"
+                app:layout_constraintEnd_toEndOf="@+id/pending_order"
                 app:layout_constraintHorizontal_bias="0.462"
-                app:layout_constraintStart_toStartOf="@+id/textView12"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                app:layout_constraintStart_toStartOf="@+id/pending_order"
+                app:layout_constraintTop_toBottomOf="@+id/pending_order" />
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -133,7 +133,7 @@
                 android:textSize="12sp"
                 app:layout_constraintEnd_toStartOf="@+id/textView16"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/textView12"
+                app:layout_constraintStart_toEndOf="@+id/pending_order"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
             <TextView
@@ -330,6 +330,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/create_new_user_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/green_card_shape">

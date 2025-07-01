@@ -38,6 +38,12 @@ class MainActivity : ComponentActivity() {
         binding.adminProfile.setOnClickListener {
             startActivity(Intent(this, AdminProfileActivity::class.java))
         }
+        binding.createNewUserBtn.setOnClickListener {
+            startActivity(Intent(this, CreateNewUserActivity::class.java))
+        }
+        binding.pendingOrder.setOnClickListener {
+            startActivity(Intent(this,PendingOrderActivity::class.java))
+        }
     }
 }
 

@@ -16,7 +16,9 @@ class AllItemMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-
+binding.backButton.setOnClickListener {
+    finish()
+}
 //dummy data
         val menuFoodName = listOf("Burger", "Crab Fry", "icecream", "pasta", "Roll")
         val menuFoodPrice = listOf("$3", "$4", "$7", "$6", "$9")
