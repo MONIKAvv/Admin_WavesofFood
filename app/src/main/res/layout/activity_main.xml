@@ -288,6 +288,7 @@
         app:layout_constraintTop_toTopOf="@+id/cardView6">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/admin_profile"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/green_card_shape">
@@ -368,6 +369,7 @@
         app:layout_constraintTop_toTopOf="@+id/cardView7">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/order_delivery"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/green_card_shape">

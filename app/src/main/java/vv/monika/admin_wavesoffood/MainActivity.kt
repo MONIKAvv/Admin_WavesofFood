@@ -31,8 +31,13 @@ class MainActivity : ComponentActivity() {
         binding.allItemMenu.setOnClickListener {
             startActivity(Intent(this, AllItemMenuActivity::class.java))
         }
+        binding.orderDelivery.setOnClickListener {
+            startActivity(Intent(this, OutForDeliveryActivity::class.java))
+        }
 
-
+        binding.adminProfile.setOnClickListener {
+            startActivity(Intent(this, AdminProfileActivity::class.java))
+        }
     }
 }
 
