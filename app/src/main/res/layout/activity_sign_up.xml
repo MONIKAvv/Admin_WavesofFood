@@ -80,12 +80,13 @@
             android:layout_height="match_parent"
             android:background="@drawable/edit_text_shape"
             android:fontFamily="@font/lato"
+            android:paddingStart="8dp"
             android:hint="Search Your City" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/owner_name"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginTop="8dp"
@@ -103,7 +104,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/restaurant_name"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginTop="8dp"
@@ -115,12 +116,12 @@
         android:inputType="text"
         android:paddingStart="16dp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintEnd_toEndOf="@+id/owner_name"
+        app:layout_constraintStart_toStartOf="@+id/owner_name"
+        app:layout_constraintTop_toBottomOf="@+id/owner_name" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/owner_email_add"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginTop="8dp"
@@ -132,12 +133,12 @@
         android:inputType="textEmailAddress"
         android:paddingStart="16dp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText2"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintEnd_toEndOf="@+id/restaurant_name"
+        app:layout_constraintStart_toStartOf="@+id/restaurant_name"
+        app:layout_constraintTop_toBottomOf="@+id/restaurant_name" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/owner_password"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginTop="8dp"
@@ -149,9 +150,9 @@
         android:inputType="textPassword"
         android:paddingStart="16dp"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
+        app:layout_constraintEnd_toEndOf="@+id/owner_email_add"
+        app:layout_constraintStart_toStartOf="@+id/owner_email_add"
+        app:layout_constraintTop_toBottomOf="@+id/owner_email_add" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signup_button"
@@ -163,9 +164,9 @@
         android:text="Create Account"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintEnd_toEndOf="@+id/owner_password"
+        app:layout_constraintStart_toStartOf="@+id/owner_password"
+        app:layout_constraintTop_toBottomOf="@+id/owner_password" />
 
     <TextView
         android:id="@+id/already_have_acc_btn"
