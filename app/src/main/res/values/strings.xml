@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Admin_WavesofFood</string>
+    <string name="default_web_client_id">1042083184499-fcme4vm0fc2tumtdr5og05g5d7l70ifb.apps.googleusercontent.com</string>
+
 </resources>

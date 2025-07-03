@@ -106,22 +106,22 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
+        android:id="@+id/google"
         android:layout_width="155dp"
         android:layout_height="57dp"
-        android:text="Google"
-        android:drawableStart="@drawable/google"
-        android:paddingStart="20dp"
-        android:textAllCaps="false"
-        android:fontFamily="@font/lato"
         android:background="@drawable/white_button_shape"
+        android:drawableStart="@drawable/google"
+        android:fontFamily="@font/lato"
+        android:paddingStart="20dp"
+        android:text="Google"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/facebook"
+        app:layout_constraintTop_toTopOf="@+id/facebook" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/facebook"
         android:layout_width="155dp"
         android:layout_height="57dp"
         android:layout_marginTop="32dp"
@@ -131,7 +131,7 @@
         android:paddingStart="20dp"
         android:textAllCaps="false"
         android:background="@drawable/white_button_shape"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/google"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -146,9 +146,9 @@
         android:text="Login"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="@+id/google"
+        app:layout_constraintStart_toStartOf="@+id/facebook"
+        app:layout_constraintTop_toBottomOf="@+id/facebook" />
 
     <TextView
         android:id="@+id/dont_have_acc_btn"
