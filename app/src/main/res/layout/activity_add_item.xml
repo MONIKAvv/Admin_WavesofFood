@@ -23,12 +23,13 @@
 
 
             <TextView
-                android:id="@+id/textView28"
+                android:id="@+id/add_food_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/lato"
-                android:text="Lorem ipsum dolor sit amet, \n  consectetur adipiscing elit, \n sed do eiusmod tempor incididunt  \n ut labore et dolore magna aliqua. Ut enim ad"
+                android:clickable="true"
+                android:hint="Add Description"
                 app:layout_constraintStart_toStartOf="@+id/textView27"
                 app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
@@ -77,13 +78,13 @@
                 android:inputType="text"
                 android:paddingStart="8dp"
                 android:paddingEnd="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextNumber"
+                app:layout_constraintEnd_toEndOf="@+id/add_food_price_text_view"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/editTextNumber"
-                app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+                app:layout_constraintStart_toStartOf="@+id/add_food_price_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/add_food_price_text_view" />
 
             <EditText
-                android:id="@+id/editTextNumber"
+                android:id="@+id/add_food_price_text_view"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="16dp"
@@ -93,12 +94,12 @@
                 android:hint="Item Price"
                 android:inputType="number"
                 android:paddingStart="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/editTextText3"
-                app:layout_constraintStart_toStartOf="@+id/editTextText3"
-                app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+                app:layout_constraintEnd_toEndOf="@+id/add_food_name_text_view"
+                app:layout_constraintStart_toStartOf="@+id/add_food_name_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/add_food_name_text_view" />
 
             <EditText
-                android:id="@+id/editTextText3"
+                android:id="@+id/add_food_name_text_view"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="8dp"
@@ -147,21 +148,22 @@
                 android:text="Ingredients"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/textView28"
-                app:layout_constraintTop_toBottomOf="@+id/textView28" />
+                app:layout_constraintStart_toStartOf="@+id/add_food_description"
+                app:layout_constraintTop_toBottomOf="@+id/add_food_description" />
 
             <TextView
-                android:id="@+id/textView30"
+                android:id="@+id/add_food_ingredient"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/lato"
-                android:text="Noddle\n Salad\n Burger\n Herbal\n Pan Cake\n Momos"
+                android:hint="Add Ingredients"
+                android:clickable="true"
                 app:layout_constraintStart_toStartOf="@+id/textView29"
                 app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button3"
+                android:id="@+id/add_food_button"
                 android:layout_width="157dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="52dp"
@@ -171,7 +173,7 @@
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+                app:layout_constraintTop_toBottomOf="@+id/add_food_ingredient" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

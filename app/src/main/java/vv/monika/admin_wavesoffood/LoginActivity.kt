@@ -13,6 +13,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FacebookAuthCredential
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -23,7 +24,7 @@ import com.google.firebase.ktx.Firebase
 import vv.monika.admin_wavesoffood.databinding.ActivityLoginBinding
 import vv.monika.admin_wavesoffood.model.userModel
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity: AppCompatActivity() {
 
     private var username: String? = null
     private var resturant: String? = null
@@ -32,7 +33,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private lateinit var googleSignInClient: GoogleSignInClient
-
+//    private lateinit var callbackManager: CallbackManager
+private lateinit var currentUser: FirebaseUser
 
     private val binding: ActivityLoginBinding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
@@ -51,12 +53,14 @@ class LoginActivity : AppCompatActivity() {
         auth = Firebase.auth
         database = Firebase.database.reference
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOption)
-
+//callbackManager = CallbackManager.Factory.create()
 
         binding.google.setOnClickListener {
             val signIntent = googleSignInClient.signInIntent
-
             launcher.launch(signIntent)
+        }
+        binding.facebook.setOnClickListener {
+
         }
 
         binding.dontHaveAccBtn.setOnClickListener {
@@ -67,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
 //            firebase signup
 //            get text from edit text
             email = binding.email.text.toString().trim()
-            password = binding.password.toString().trim()
+            password = binding.password.text.toString().trim()
 
             if (email.isBlank() || password.isBlank()) {
                 Toast.makeText(this, "Please enter all details", Toast.LENGTH_SHORT).show()
@@ -112,14 +116,13 @@ class LoginActivity : AppCompatActivity() {
 
     private fun saveUserData() {
         email = binding.email.text.toString().trim()
-        password = binding.password.toString().trim()
+        password = binding.password.text.toString().trim()
         val user = userModel(username, resturant, email, password)
         val userId = FirebaseAuth.getInstance().currentUser?.uid
 //        save
         userId?.let {
             database.child("user").child(it).setValue(user)
         }
-
 
     }
 
@@ -140,10 +143,11 @@ class LoginActivity : AppCompatActivity() {
                                 "Successfully Sign-in with Google",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            updateUI(user = null)
+                            updateUI(auth.currentUser)
                         } else {
                             Toast.makeText(this, "Sign-in with Google Failed", Toast.LENGTH_SHORT)
                                 .show()
+                            Log.d("GOOGLE_AUTH", "Failed: ${authTask.exception?.message}")
                         }
                     }
 
@@ -155,8 +159,14 @@ class LoginActivity : AppCompatActivity() {
         }
 
     private fun updateUI(user: FirebaseUser?) {
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+
+        if (user !=null){
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }else{
+            Toast.makeText(this, "User not exist", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 }
