@@ -16,16 +16,21 @@ class AllItemMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-binding.backButton.setOnClickListener {
-    finish()
-}
+        binding.backButton.setOnClickListener {
+            finish()
+        }
 //dummy data
         val menuFoodName = listOf("Burger", "Crab Fry", "icecream", "pasta", "Roll")
         val menuFoodPrice = listOf("$3", "$4", "$7", "$6", "$9")
         val menuFoodImage = listOf(
-            R.drawable.menu1, R.drawable.menu2, R.drawable.menu3, R.drawable.menu4, R.drawable.menu5)
+            R.drawable.menu1, R.drawable.menu2, R.drawable.menu3, R.drawable.menu4, R.drawable.menu5
+        )
 
-        val adapter = AddItemAdapter(ArrayList(menuFoodName), ArrayList(menuFoodPrice), ArrayList(menuFoodImage))
+        val adapter = AddItemAdapter(
+            ArrayList(menuFoodName),
+            ArrayList(menuFoodPrice),
+            ArrayList(menuFoodImage)
+        )
 //        now we are binding recyclerview
         binding.allItemRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.allItemRecyclerView.adapter = adapter

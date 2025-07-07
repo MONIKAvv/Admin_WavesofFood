@@ -83,7 +83,8 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
-//save data into database
+
+    //save data into database
     private fun saveUserData() {
         userName = binding.ownerName.text.toString().trim()
         restaurant = binding.restaurantName.text.toString().trim()
@@ -91,10 +92,11 @@ class SignUpActivity : AppCompatActivity() {
         password = binding.ownerPassword.text.toString().trim()
 
         val user = userModel(userName, restaurant, email, password)
-        val userId = FirebaseAuth.getInstance().currentUser!!.uid
-
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+        if (userId != null) {
+            database.child("user").child(userId).setValue(user)
+        }
 //    save data to firebase
-        database.child("user").child(userId).setValue(user)
 
 
     }
