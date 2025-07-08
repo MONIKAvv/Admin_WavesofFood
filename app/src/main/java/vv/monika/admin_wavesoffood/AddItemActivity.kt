@@ -2,6 +2,7 @@ package vv.monika.admin_wavesoffood
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
@@ -58,7 +59,6 @@ class AddItemActivity : AppCompatActivity() {
 
             if (!(foodName.isBlank() || foodPrice.isBlank() || foodDescription.isBlank() || foodIngredient.isBlank())) {
                 uploadData()
-                Toast.makeText(this, "Item Added Successfully!", Toast.LENGTH_SHORT).show()
                 finish()
 
             } else {
@@ -83,16 +83,31 @@ class AddItemActivity : AppCompatActivity() {
 
     private fun uploadData() {
 //get a reference to the "menu" node in the database
+
         val menuRef: DatabaseReference = database.getReference("menu")
 //        generate unique key for the new menu ---> so that i future we can update and delete the item through this id only
         val newItemKey: String? = menuRef.push().key
+        if (newItemKey == null) {
+            Toast.makeText(this, "item key generation failed", Toast.LENGTH_SHORT).show()
+        }
 
         if (foodImageUri != null) {
+            Log.d("FoodImageUri", foodImageUri.toString())
+            val inputStream = contentResolver.openInputStream(foodImageUri!!)
+            if (inputStream == null) {
+                Toast.makeText(this, "cannot open image generation", Toast.LENGTH_SHORT).show()
+                Log.d("ImagePath", "URI: $foodImageUri")
+
+                return
+            }
+            Log.d("InputStreamCheck", "Input stream is not null")
 //            need to enable storage / firebase database in firebase console
             val storageRef = FirebaseStorage.getInstance().reference
-            val imageReference = storageRef.child("menu_images/${newItemKey}.jpeg")
+            val imageReference = storageRef.child("menu_images/${newItemKey}.jpg")
+
 //            jpeg main convert kar dega
-            val uploadTask = imageReference.putFile(foodImageUri!!)
+
+            val uploadTask = imageReference.putStream(inputStream!!)
 
 
             uploadTask.addOnSuccessListener {
@@ -110,17 +125,23 @@ class AddItemActivity : AppCompatActivity() {
                         menuRef.child(key).setValue(newItem).addOnSuccessListener {
                             Toast.makeText(this, "data Uploaded Successfully!", Toast.LENGTH_SHORT)
                                 .show()
+                            Log.d("ImageLog", "Image Error $foodImageUri")
                         }.addOnFailureListener {
                             Toast.makeText(this, "Data upload Fail", Toast.LENGTH_SHORT).show()
                         }
                     }
 
                 }
-            }.addOnFailureListener {
-                Toast.makeText(this, "Image Upload Failed", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener { exception ->
+                Toast.makeText(this, "Image Upload Failed ${exception.message}", Toast.LENGTH_SHORT)
+                    .show()
+                Log.e("UPLOAD_ERROR", "Upload failed", exception)
+                Log.d("UPLOAD_TASK", "Uploading image to: ${imageReference.path}")
+                Log.d("FoodName", foodName)
+                Log.d("FoodPrice", foodPrice)
             }
 
-        }else{
+        } else {
             Toast.makeText(this, "Please Select a Food Image", Toast.LENGTH_SHORT).show()
         }
 

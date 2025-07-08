@@ -67,11 +67,12 @@
                     app:srcCompat="@drawable/addimage" />
             </androidx.cardview.widget.CardView>
 
-            <EditText
+            <TextView
                 android:id="@+id/selectImage"
                 android:layout_width="0dp"
                 android:layout_height="57dp"
                 android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
                 android:background="@drawable/edittextshape"
                 android:drawableEnd="@drawable/pluse_round"
                 android:ems="10"
